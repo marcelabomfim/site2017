@@ -207,6 +207,24 @@ const toogleInvertColor = () => {
   })
 }
 
+const codeMagic = () => {
+  let array = [];
+  let magicNumbers = "38,38,40,40,37,39,37,39,66,65";
+
+  array.push( e.keyCode );
+
+  if ( array.toString().indexOf( magicNumbers ) >= 0 ) {
+
+    // $(document).unbind('keydown',arguments.callee);
+
+    // do something awesome
+    // $("body").addClass("konami");
+    alert('Que mágica');
+
+  }
+
+}
+
 class FontSize {
   constructor() {
     this.fontSize = document.querySelector('[data-font-size]');
@@ -335,6 +353,7 @@ window.onload = function () {
 
   clickMenu();
   toogleInvertColor();
+  codeMagic();
 
   const timelineContainer = document.querySelector('[data-schedule]')
   const speakersContainer = document.querySelector('[data-speaker]')
