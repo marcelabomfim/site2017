@@ -207,21 +207,45 @@ const toogleInvertColor = () => {
   })
 }
 
-const codeMagic = () => {
-  let array = [];
-  let magicNumbers = "38,38,40,40,37,39,37,39,66,65";
+const codeMagic = (e) => {
 
-  array.push( e.keyCode );
 
-  if ( array.toString().indexOf( magicNumbers ) >= 0 ) {
+  var keys = [],
+      konami = "38,38,40,40,37,39,37,39,66,65";
 
-    // $(document).unbind('keydown',arguments.callee);
+  // bind the keydown event to the Konami function
+  window.addEventListener("keydown", function(e){
+      // push the keycode to the 'keys' array
+      keys.push(e.keyCode);
 
-    // do something awesome
-    // $("body").addClass("konami");
-    alert('Que mágica');
+      // and check to see if the user has entered the Konami code
+      if (keys.toString().indexOf(konami) >= 0) {
+          // do something such as:
+          alert('Luka');
 
-  }
+          // and finally clean up the keys array
+          keys = [];
+      };
+  }, true);
+  // let array = [];
+  // let magicNumbers = "38,38,40,40,37,39,37,39,66,65";
+
+  // // array.push( e.keyCode );
+  // console.log(e)
+
+  // document.body.addEventListener('keypress', () => {
+  //   console.log('cliquei')
+  // })
+
+  // if ( array.toString().indexOf( magicNumbers ) >= 0 ) {
+
+  //   // $(document).unbind('keydown',arguments.callee);
+
+  //   // do something awesome
+  //   // $("body").addClass("konami");
+  //   alert('Que mágica');
+
+  // }
 
 }
 
