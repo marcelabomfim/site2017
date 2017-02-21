@@ -39,21 +39,21 @@ var speakersData = [
   {
     name: 'A definir',
     role: '',
-    label: 'EM BREVE',
+    label: '',
     link: '/',
     photo: 'assets/images/speaker.jpg'
   },
   {
     name: 'A definir',
     role: '',
-    label: 'EM BREVE',
+    label: '',
     link: '/',
     photo: 'assets/images/speaker.jpg'
   },
   {
     name: 'A definir',
     role: '',
-    label: 'EM BREVE',
+    label: '',
     link: '/',
     photo: 'assets/images/speaker.jpg'
   }
@@ -200,6 +200,45 @@ const toogleInvertColor = () => {
   })
 }
 
+
+const swip = () => {
+  let touchstartX = 0;
+  let touchstartY = 0;
+  let touchendX = 0;
+  let touchendY = 0;
+  let checkbox = document.querySelector('[data-check]');
+
+  window.addEventListener('touchstart', function(event) {
+      touchstartX = event.changedTouches[0].screenX;
+      touchstartY = event.changedTouches[0].screenY;
+  }, false);
+
+
+  window.addEventListener('touchend', function(event) {
+      touchendX = event.changedTouches[0].screenX;
+      touchendY = event.changedTouches[0].screenY;
+      handle();
+  }, false);
+
+  function handle() {
+      if (touchendX < touchstartX) {
+          checkbox.setAttribute('checked','checked');
+      }
+      if (touchendX > touchstartX) {
+          checkbox.removeAttribute('checked','checked');
+      }
+      if (touchendY == touchstartY) {
+        alert(el)
+
+        if (checkbox.getAttribute('checked')) {
+          checkbox.removeAttribute('checked','checked');
+        } else {
+          checkbox.setAttribute('checked','checked');
+        }
+      }
+  }
+}
+
 class FontSize {
   constructor() {
     this.fontSize = document.querySelector('[data-font-size]');
@@ -328,6 +367,7 @@ window.onload = function () {
 
   clickMenu();
   toogleInvertColor();
+  swip();
 
   const timelineContainer = document.querySelector('[data-schedule]')
   const speakersContainer = document.querySelector('[data-speaker]')
